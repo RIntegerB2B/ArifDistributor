@@ -63,6 +63,7 @@ export class AdsComponent implements OnInit {
         this.reader.readAsDataURL(file);
       }
     }
+    this.checkImageName();
   }
   checkImageName() {
     this.imageNameFilter = this.adsModel.filter(val => val.adsImageName.indexOf(this.adsImageData.adsImage.name) !== -1);

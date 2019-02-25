@@ -12,7 +12,7 @@
           <div>
             <input type="file" name="file" class="btn btnPink btn-block" id="file"  (change)="handleFileInput($event.target.files)">
           </div>
-<div *ngIf="showImageNameError">
+<div *ngIf="showImageNameError" style="color:red">
             Image Name exists
           </div>
         </div>
