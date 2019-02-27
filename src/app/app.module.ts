@@ -18,7 +18,7 @@ import { AppLoadModule } from './app-load/app-load.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
   ],
   bootstrap: [AppComponent]
 })
