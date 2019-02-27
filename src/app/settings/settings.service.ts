@@ -3,9 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AppSetting } from '../config/appSetting';
-
 import {Banner} from './banners/banner.model';
 import {Ads} from './ads/ads.model';
+import { AppLoadModule } from './../app-load/app-load.module';
+import { AppLoadService } from '../app-load/app-load.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,9 @@ export class SettingsService {
 
   serviceUrl: string = AppSetting.serviceUrl;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private appLoadService: AppLoadService) {
+   console.log(this.appLoadService.getSettings());
+   }
 
   // banners
 

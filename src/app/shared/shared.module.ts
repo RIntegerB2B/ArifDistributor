@@ -32,6 +32,7 @@ import {
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { NavSidebarComponent } from './nav-sidebar/nav-sidebar.component';
 import { SharedRoutingModule } from './shared-routing.module';
+import { AppLoadModule} from './../app-load/app-load.module';
 
 @NgModule({
   declarations: [NavSidebarComponent],
@@ -66,6 +67,7 @@ import { SharedRoutingModule } from './shared-routing.module';
     ReactiveFormsModule,
     HttpClientModule,
     SharedRoutingModule,
+    AppLoadModule
   ]
 })
 export class SharedModule { }

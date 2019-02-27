@@ -1,3 +1,4 @@
 export const AppSetting: AppSettingType = {
-    serviceUrl: 'http://localhost:3081/' ,
+    title: '',
+    serviceUrl: ''
 };
