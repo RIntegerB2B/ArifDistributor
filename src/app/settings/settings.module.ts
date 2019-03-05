@@ -38,8 +38,13 @@ import { ViewBannersComponent } from './view-banners/view-banners.component';
 import { AdsComponent } from './ads/ads.component';
 import { ViewAdsComponent } from './view-ads/view-ads.component';
 import { AppLoadModule} from './../app-load/app-load.module';
+import { PromotionsComponent } from './promotions/promotions.component';
+import { FooterComponent } from './footer/footer.component';
+import { ViewFooterComponent } from './view-footer/view-footer.component';
+import { TemplateDesignComponent } from './template-design/template-design.component';
+import { HeaderComponent } from './header/header.component';
 @NgModule({
-  declarations: [BannersComponent, ViewBannersComponent, AdsComponent, ViewAdsComponent],
+  declarations: [BannersComponent, ViewBannersComponent, AdsComponent, ViewAdsComponent, PromotionsComponent, FooterComponent, ViewFooterComponent, TemplateDesignComponent, HeaderComponent],
   imports: [
     HttpClientModule,
     SettingsRoutingModule,

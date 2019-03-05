@@ -5,6 +5,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { AppSetting } from '../config/appSetting';
 import {Banner} from './banners/banner.model';
 import {Ads} from './ads/ads.model';
+import {Footer} from './footer/footer.model';
+import {TemplateDesign} from './template-design/template-design.model';
+import {Header} from './header/header.model';
 import { AppLoadModule } from './../app-load/app-load.module';
 import { AppLoadService } from '../app-load/app-load.service';
 
@@ -52,5 +55,56 @@ export class SettingsService {
     const deleteUrl = 'deleteads/';
     const url: string = this.serviceUrl + deleteUrl + data._id ;
     return this.httpClient.delete<Ads>(url);
+  }
+
+  // footer Details
+
+  addFooterdetails(data: Footer): Observable<any> {
+    const footerUrl = 'footer/';
+    const url: string = this.serviceUrl + footerUrl ;
+    return this.httpClient.post<Footer>(url, data);
+  }
+  uploadLogo(data , id): Observable<any> {
+    const addUrl = 'createLogoImage/';
+    const url: string = this.serviceUrl + addUrl + id ;
+    return this.httpClient.put<boolean>(url, data);
+  }
+
+  getFooterDetails(): Observable<any> {
+    const categoryUrl = 'footerDetails';
+    const url: string = this.serviceUrl + categoryUrl;
+    return this.httpClient.get<Ads>(url);
+  }
+  updateFooterDetails(data , id): Observable<any> {
+    const addUrl = 'details/';
+    const url: string = this.serviceUrl + addUrl + id ;
+    return this.httpClient.put<Footer>(url, data);
+  }
+
+  // template
+  addTemplateails(data): Observable<any> {
+    const footerUrl = 'createTemplateImage';
+    const url: string = this.serviceUrl + footerUrl ;
+    return this.httpClient.post<TemplateDesign>(url, data);
+  }
+
+  getTemplateDetails(): Observable<any> {
+    const categoryUrl = 'templateImages';
+    const url: string = this.serviceUrl + categoryUrl;
+    return this.httpClient.get<TemplateDesign>(url);
+  }
+
+  // header
+
+  addLogo(data): Observable<any> {
+    const footerUrl = 'createLogoImage';
+    const url: string = this.serviceUrl + footerUrl ;
+    return this.httpClient.post<Header>(url, data);
+  }
+
+  getHeaderDetails(): Observable<any> {
+    const categoryUrl = 'headerDetails';
+    const url: string = this.serviceUrl + categoryUrl;
+    return this.httpClient.get<Header>(url);
   }
 }

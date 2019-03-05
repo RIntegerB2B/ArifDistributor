@@ -5,6 +5,11 @@ import {BannersComponent} from './banners/banners.component';
 import {ViewBannersComponent} from './view-banners/view-banners.component';
 import {AdsComponent} from './ads/ads.component';
 import {ViewAdsComponent} from './view-ads/view-ads.component';
+import {PromotionsComponent} from './promotions/promotions.component';
+import {FooterComponent} from './footer/footer.component';
+import {ViewFooterComponent} from './view-footer/view-footer.component';
+import {TemplateDesignComponent} from './template-design/template-design.component';
+import {HeaderComponent} from './header/header.component';
 
 
 const routes: Routes = [{
@@ -22,6 +27,26 @@ const routes: Routes = [{
 {
   path: 'viewads',
   component: ViewAdsComponent
+},
+{
+  path: 'promotions',
+  component: PromotionsComponent
+},
+{
+  path: 'footer',
+  component: FooterComponent
+},
+{
+  path: 'viewfooter',
+  component: ViewFooterComponent
+},
+{
+  path: 'templatedesign',
+  component: TemplateDesignComponent
+},
+{
+  path: 'header',
+  component: HeaderComponent
 }];
 
 @NgModule({

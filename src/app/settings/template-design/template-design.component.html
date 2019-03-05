@@ -1,0 +1,27 @@
+<div class="pageBoxLg ">
+  <label class="pageBoxLg-label ">Add Template Design
+  </label>
+  <form [formGroup]="templateForm" novalidate style="padding-top:60px">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label class="pageBoxLg-label ">Template Image</label>
+          <div>
+            <img *ngFor="let url of urls" [src]="url" style="width: 280px; height: 245px;" />
+          </div>
+          <div>
+            <input type="file" name="file" class="btn btnPink btn-block" id="file"  (change)="handleFileInput($event.target.files)">
+          </div>
+          <button mat-raised-button color="accent" type="submit" (click)="addTemplate()" [disabled]='!templateForm.valid'>Save</button>
+        </div>
+        <div class="form-group col-md-6">
+            <label class="pageBoxLg-label "> Current Template</label>
+          <div class="form-group col-md-12">
+           
+            <img *ngFor="let url of templateModel" [src]="url.templateImageName" style="width: 550px; height: 450px;" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

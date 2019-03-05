@@ -8,6 +8,8 @@ import { MatSnackBar } from '@angular/material';
 import { Ads } from './ads.model';
 import { SettingsService } from '../settings.service';
 import {AdsImageData} from './adsImageData.model';
+import {TemplateDesign} from '../template-design/template-design.model';
+import {priceValue} from '../../shared/validation/price-validation';
 
 @Component({
   selector: 'app-ads',
@@ -20,6 +22,7 @@ export class AdsComponent implements OnInit {
   adsModel: Ads[];
   imageNameFilter;
   showImageNameError = false;
+  templateModel: TemplateDesign;
   message;
   action;
 
@@ -35,11 +38,13 @@ export class AdsComponent implements OnInit {
   ngOnInit() {
     this.createForm();
     this.getAdsDetails();
+    this.getTemplate();
   }
   createForm() {
     this.adsForm = this.fb.group({
       id: [''],
-      position: ['' ],
+      position: ['', priceValue ],
+      adsDescription: ['']
     });
   }
   getAdsDetails() {
@@ -47,6 +52,13 @@ export class AdsComponent implements OnInit {
       this.adsModel = data;
     }, err => {
       console.log(err);
+    });
+  }
+  getTemplate() {
+    this.settingService.getTemplateDetails().subscribe(data => {
+      this.templateModel = data;
+    }, error => {
+      console.log(error);
     });
   }
   handleFileInput(images: any) {

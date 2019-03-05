@@ -4,10 +4,12 @@ import { Router } from '@angular/router';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material';
+import {priceValue} from '../../shared/validation/price-validation';
 
 import { Banner } from './banner.model';
 import { SettingsService } from '../settings.service';
 import { BannerImageData } from './bannerImageData.model';
+import {TemplateDesign} from '../template-design/template-design.model';
 
 @Component({
   selector: 'app-banners',
@@ -18,6 +20,7 @@ export class BannersComponent implements OnInit {
   bannerForm: FormGroup;
   bannerModel: Banner[];
   imageNameFilter: Banner[];
+  templateModel: TemplateDesign;
   showImageNameError = false;
   message: string;
   action: string;
@@ -34,12 +37,13 @@ export class BannersComponent implements OnInit {
   ngOnInit() {
     this.createForm();
     this.getBannersDetails();
+    this.getTemplate();
   }
   createForm() {
     this.bannerForm = this.fb.group({
       id: [''],
       bannerDescription: [''],
-      position: [''],
+      position: ['', priceValue],
     });
   }
   getBannersDetails() {
@@ -47,6 +51,13 @@ export class BannersComponent implements OnInit {
       this.bannerModel = data;
     }, err => {
       console.log(err);
+    });
+  }
+  getTemplate() {
+    this.settingService.getTemplateDetails().subscribe(data => {
+      this.templateModel = data;
+    }, error => {
+      console.log(error);
     });
   }
   handleFileInput(images: any) {
