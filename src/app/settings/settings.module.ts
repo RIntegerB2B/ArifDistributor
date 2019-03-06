@@ -43,9 +43,11 @@ import { FooterComponent } from './footer/footer.component';
 import { ViewFooterComponent } from './view-footer/view-footer.component';
 import { TemplateDesignComponent } from './template-design/template-design.component';
 import { HeaderComponent } from './header/header.component';
+import { ViewPromotionsComponent } from './view-promotions/view-promotions.component';
+import { ViewSinglePromotionsComponent } from './view-single-promotions/view-single-promotions.component';
 @NgModule({
   declarations: [BannersComponent, ViewBannersComponent, AdsComponent, ViewAdsComponent,
-    PromotionsComponent, FooterComponent, ViewFooterComponent, TemplateDesignComponent, HeaderComponent],
+    PromotionsComponent, FooterComponent, ViewFooterComponent, TemplateDesignComponent, HeaderComponent, ViewPromotionsComponent, ViewSinglePromotionsComponent],
   imports: [
     HttpClientModule,
     SettingsRoutingModule,

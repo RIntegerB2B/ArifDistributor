@@ -124,4 +124,15 @@ export class SettingsService {
     const url: string = this.serviceUrl + footerUrl ;
     return this.httpClient.post<Promotion>(url, data);
   }
+  getPromotions(): Observable<any> {
+    const categoryUrl = 'promotions';
+    const url: string = this.serviceUrl + categoryUrl;
+    return this.httpClient.get<Promotion>(url);
+}
+
+deletePromotions(data): Observable<any> {
+  const deleteUrl = 'deletepromotions/';
+  const url: string = this.serviceUrl + deleteUrl + data._id ;
+  return this.httpClient.delete<Ads>(url);
+}
 }

@@ -1,14 +1,14 @@
 <div class="pageBoxLg ">
-  <label class="pageBoxLg-label ">Add Ads
+  <label class="pageBoxLg-label ">Add Category Content
   </label>
   <form [formGroup]="adsForm" novalidate style="padding-top:60px">
     <div class="container-fluid">
       <div class="row">
         <div class="form-group col-md-6">
-          <label class="pageBoxLg-label ">Ads Images</label>
+          <label class="pageBoxLg-label "> Images</label>
           <div class="form-group col-md-6">
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Ads Position" formControlName="position" >
+                <input matInput placeholder="Image Position" formControlName="position" >
                 <mat-error *ngIf="!adsForm.controls['position'].errors?.required">
                     Enter the valid
                   <strong>Number</strong>

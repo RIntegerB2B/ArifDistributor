@@ -142,6 +142,7 @@ export class PromotionsComponent implements OnInit {
       this.snackBar.open(this.message, this.action, {
         duration: 2000,
       });
+      this.router.navigate(['settings/promotions']);
     }, err => {
       console.log(err);
     });
