@@ -66,13 +66,10 @@
         <div class="form-group col-md-6">
             <label>Logo </label>
             <div>
-              <img *ngFor="let url of urls" [src]="url" style="width: 280px; height: 245px;" />
+              <img *ngFor="let url of urls" [src]="url" style="width: 100px; height: 50px;"/>
             </div>
             <div>
               <input type="file" name="file" class="btn btnPink btn-block" id="file"  (change)="handleFileInput($event.target.files)">
-            </div>
-            <div *ngIf="showImageNameError" style="color:red">
-              Image Name exists
             </div>
             <div class="form-group col-md-12">
 

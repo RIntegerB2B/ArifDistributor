@@ -1,5 +1,6 @@
 export class Product {
     _id: string;
+    productId: string;
     productTitle: string;
     productName: string;
     productDescription: string;

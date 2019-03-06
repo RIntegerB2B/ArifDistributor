@@ -9,6 +9,8 @@ import {Footer} from './footer/footer.model';
 import {TemplateDesign} from './template-design/template-design.model';
 import {Header} from './header/header.model';
 import { AppLoadModule } from './../app-load/app-load.module';
+import {Product} from '../product/view-product/product.model';
+import {Promotion} from './promotions/promotion.model';
 import { AppLoadService } from '../app-load/app-load.service';
 
 @Injectable({
@@ -106,5 +108,20 @@ export class SettingsService {
     const categoryUrl = 'headerDetails';
     const url: string = this.serviceUrl + categoryUrl;
     return this.httpClient.get<Header>(url);
+  }
+
+  // getProducts
+
+   getProducts(): Observable<any> {
+    const categoryUrl = 'product';
+    const url: string = this.serviceUrl + categoryUrl;
+    return this.httpClient.get<Product>(url);
+  }
+
+  // promotions
+  addPromotion(data): Observable<any> {
+    const footerUrl = 'promotions';
+    const url: string = this.serviceUrl + footerUrl ;
+    return this.httpClient.post<Promotion>(url, data);
   }
 }
