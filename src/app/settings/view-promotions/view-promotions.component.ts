@@ -59,7 +59,7 @@ export class ViewPromotionsComponent implements OnInit {
    });
   }
   viewPromotions(data) {
-    console.log(data._id);
+    console.log('single promotions', data);
    this.router.navigate(['/settings/promotions', data._id]);
   }
 }
