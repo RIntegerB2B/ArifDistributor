@@ -24,7 +24,7 @@ export class ViewBannersComponent implements OnInit {
 
   viewBannerForm: FormGroup;
   bannerModel: Banner;
-  displayedColumns: string[] = ['bannerName', 'bannerPosition', 'status',  'delete'];
+  displayedColumns: string[] = ['bannerName', 'bannerPosition', 'status'];
   bannerData;
   message;
   action;

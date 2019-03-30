@@ -23,7 +23,7 @@ export interface PeriodicElement {
 export class ViewAdsComponent implements OnInit {
   viewAdsForm: FormGroup;
   adsModel: Ads;
-  displayedColumns: string[] = ['adsImageName', 'adsPosition', 'status', 'delete'];
+  displayedColumns: string[] = ['adsImageName', 'adsPosition', 'status'];
   adsData;
   message;
   action;

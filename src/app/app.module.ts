@@ -11,7 +11,7 @@ import { AppLoadModule } from './app-load/app-load.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     AppLoadModule,

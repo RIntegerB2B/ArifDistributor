@@ -47,7 +47,8 @@ import { ViewPromotionsComponent } from './view-promotions/view-promotions.compo
 import { ViewSinglePromotionsComponent } from './view-single-promotions/view-single-promotions.component';
 @NgModule({
   declarations: [BannersComponent, ViewBannersComponent, AdsComponent, ViewAdsComponent,
-    PromotionsComponent, FooterComponent, ViewFooterComponent, TemplateDesignComponent, HeaderComponent, ViewPromotionsComponent, ViewSinglePromotionsComponent],
+    PromotionsComponent, FooterComponent, ViewFooterComponent, TemplateDesignComponent, HeaderComponent,
+    ViewPromotionsComponent, ViewSinglePromotionsComponent],
   imports: [
     HttpClientModule,
     SettingsRoutingModule,

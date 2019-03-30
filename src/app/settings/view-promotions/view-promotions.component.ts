@@ -22,7 +22,7 @@ export interface PeriodicElement {
 export class ViewPromotionsComponent implements OnInit {
   viewPromotionForm: FormGroup;
   promotinModel: Promotion;
-  displayedColumns: string[] = ['promotionTitle', 'promotionPosition', 'products', 'view', 'delete'];
+  displayedColumns: string[] = ['promotionTitle', 'promotionPosition', 'products', 'view'];
   promotionData;
   message;
   action;
