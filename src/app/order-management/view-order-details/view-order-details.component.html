@@ -1,3 +1,47 @@
-<p>
-  view-order-details works!
-</p>
+<form [formGroup]="orderForm">
+  <div class="row ">
+
+    <div class="col-md-7 pageBoxLg">
+      <div class="row ">
+        <div class="col-md-12">Order <b> {{orderModel?.orderId}}</b> Details</div>
+        <div class="col-md-12 space">
+          <p>General</p>
+        </div>
+        <div class="col-md-12 space">
+          <div>
+            <p>Date created</p>
+          </div>
+          <div>
+            {{orderModel?.orderDate | date}}
+          </div>
+        </div>
+        <div class="col-md-12 space">
+          <div>
+            <p>Status</p>
+          </div>
+          <div>
+            <mat-form-field class="full-width">
+              <mat-select placeholder="Status Update" formControlName="statusType" [(ngModel)]="orderModel.orderId">
+                <mat-option *ngFor="let data of OrderStatus" [value]="data">
+                  {{data}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 pageBoxLg">
+      <div class="row ">
+        Order Actions
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+      <div class="col-md-7 pageBoxLg">
+        test
+        </div>
+  </div>
+</form>

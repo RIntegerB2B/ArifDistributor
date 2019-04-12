@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Order } from './order.model';
 import { OrderManagementService } from '../order-management.service';
-import {Router, ActivatedRoute} from '@angular/router';
-import { MatPaginator, MatTableDataSource , MatSort} from '@angular/material';
+import { Router, ActivatedRoute } from '@angular/router';
+import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-view-orders',
@@ -12,28 +12,14 @@ import { MatPaginator, MatTableDataSource , MatSort} from '@angular/material';
 export class ViewOrdersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumns: string[] = ['order', 'date', 'status', 'total'];
-  /* orders = [{
-    type: 'All',
-    value: 'All Orders'
-  }, {
-    type: 'New',
-    value: 'New Orders'
-  }, {
-    type: 'Active',
-    value: 'Active Orders'
-  }, {
-    type: 'Completed',
-    value: 'Completed Orders'
-  }, {
-    type: 'Cancelled',
-    value: 'Cancelled Orders'
-  }]; */
+  displayedColumns: string[] = ['order', 'view', 'date', 'status', 'total'];
   orderModel: any;
   orderDetails: Order[];
-   allOrderCount;
+  allOrderCount;
   newOrderCount;
   activeOrderCount;
+  completedOrderCount;
+  cancelledOrderCount;
   constructor(private router: Router, private orderService: OrderManagementService) { }
 
   ngOnInit() {
@@ -44,18 +30,41 @@ export class ViewOrdersComponent implements OnInit {
   } */
 
   viewOrders() {
-this.orderService.getAllOrders().subscribe(data => {
-  this.orderDetails = data;
-  this.allOrderCount = data.length;
-  this.orderModel = data;
-  this.orderModel = new MatTableDataSource<Order>(data);
-  this.orderModel.sort = this.sort;
-  this.orderModel.paginator = this.paginator;
-  this.newOrderCount = this.orderDetails.filter(book => book.orderStatus === 'New').length;
-  this.activeOrderCount = this.orderDetails.filter(book => book.orderStatus === 'Active').length;
- console.log();
-}, err => {
-  console.log(err);
-});
+    this.orderService.getAllOrders().subscribe(data => {
+      this.orderDetails = data;
+      this.allOrderCount = data.length;
+      this.orderModel = data;
+      this.orderModel = new MatTableDataSource<Order>(data);
+      this.orderModel.sort = this.sort;
+      this.orderModel.paginator = this.paginator;
+      this.newOrderCount = this.orderDetails.filter(book => book.orderStatus === 'New').length;
+      this.activeOrderCount = this.orderDetails.filter(book => book.orderStatus === 'Active').length;
+      this.completedOrderCount = this.orderDetails.filter(book => book.orderStatus === 'Completed').length;
+      this.cancelledOrderCount = this.orderDetails.filter(book => book.orderStatus === 'Cancelled').length;
+      console.log();
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  viewNewOrders() {
+    this.orderModel =  this.orderDetails.filter(book => book.orderStatus === 'New');
+  }
+
+  viewActiveOrders() {
+    this.orderModel =  this.orderDetails.filter(book => book.orderStatus === 'Active');
+  }
+  viewCompletedOrders() {
+    this.orderModel =  this.orderDetails.filter(book => book.orderStatus === 'Completed');
+  }
+  viewCancelledOrders() {
+    this.orderModel =  this.orderDetails.filter(book => book.orderStatus === 'Cancelled');
+  }
+  applyFilter(filterValue: string) {
+    this.orderModel.filter = filterValue.trim().toLowerCase();
+  }
+
+   showOrderDetails(order) {
+this.router.navigate(['orders/viewordersdetails', order._id ]);
   }
 }

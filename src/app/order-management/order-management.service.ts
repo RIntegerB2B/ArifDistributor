@@ -21,4 +21,10 @@ export class OrderManagementService {
     const url: string = this.serviceUrl + categoryUrl;
     return this.httpClient.get<Order>(url);
   }
+
+  getSingleOrderDetails(id): Observable<any> {
+    const categoryUrl = 'orders/';
+    const url: string = this.serviceUrl + categoryUrl + id;
+    return this.httpClient.get<Order>(url);
+  }
 }
