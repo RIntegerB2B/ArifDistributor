@@ -17,6 +17,8 @@ orderForm: FormGroup;
 productModel: any;
 message;
 action;
+customerId;
+customerModel: any;
 OrderStatus = ['New', 'Processing', 'OnHold', 'Completed' , 'Cancelled', 'Failed'];
   constructor(private router: Router,  private orderService: OrderManagementService, private route: ActivatedRoute,
     private snackBar: MatSnackBar,
@@ -38,6 +40,8 @@ statusType: ['']
 viewOrderDetails() {
   this.orderService.getSingleOrderDetails(this.id).subscribe(data => {
     this.orderModel = data[0];
+    this.customerId = data[0].customerId;
+    this.getCustomers();
   }, err => {
 console.log(err);
   });
@@ -45,6 +49,14 @@ console.log(err);
 getProducts() {
   this.orderService.getProducts().subscribe(data => {
     this.productModel = data;
+  }, err => {
+    console.log(err);
+  });
+}
+getCustomers() {
+  this.orderService.getSingleCustomerDetails(this.customerId).subscribe(data => {
+    this.customerModel = data;
+    console.log('customer', this.customerModel);
   }, err => {
     console.log(err);
   });

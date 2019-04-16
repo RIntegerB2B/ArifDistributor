@@ -1,7 +1,7 @@
 <form [formGroup]="orderForm">
   <div class="row ">
 
-    <div class="col-md-7 pageBoxLg">
+    <div class="col-md-3 pageBoxLg">
       <div class="row ">
         <div class="col-md-12">Order <b> {{orderModel?.orderId}}</b> Details</div>
        <!--  <div class="col-md-12 space">
@@ -35,6 +35,21 @@
 <button mat-raised-button color="primary" (click)="updateStatus()">Update Status</button>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="col-md-3 pageBoxLg">
+      <div class="row ">
+          <div class="col-md-12">
+              <div  *ngFor="let data of customerModel" >
+                  <b>Customer Details</b>
+                  <div>
+                 Mobile Number : <b>{{data.mobileNumber}}</b> 
+                 </div>
+                 <div>
+                 Email ID : <b>{{data.emailId}}</b> 
+                  </div>
+                </div>
+          </div>
       </div>
     </div>
     <div class="col-md-4 pageBoxLg">
