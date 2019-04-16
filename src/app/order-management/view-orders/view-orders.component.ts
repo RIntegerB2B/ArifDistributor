@@ -25,9 +25,9 @@ export class ViewOrdersComponent implements OnInit {
   ngOnInit() {
     this.viewOrders();
   }
-  /* viewDetails(data) {
+  viewDetails(data) {
     this.router.navigate(['orders/viewordersdetails', data.type]);
-  } */
+  }
 
   viewOrders() {
     this.orderService.getAllOrders().subscribe(data => {
@@ -38,7 +38,7 @@ export class ViewOrdersComponent implements OnInit {
       this.orderModel.sort = this.sort;
       this.orderModel.paginator = this.paginator;
       this.newOrderCount = this.orderDetails.filter(book => book.orderStatus === 'New').length;
-      this.activeOrderCount = this.orderDetails.filter(book => book.orderStatus === 'Active').length;
+      this.activeOrderCount = this.orderDetails.filter(book => book.orderStatus === 'Processing').length;
       this.completedOrderCount = this.orderDetails.filter(book => book.orderStatus === 'Completed').length;
       this.cancelledOrderCount = this.orderDetails.filter(book => book.orderStatus === 'Cancelled').length;
       console.log();
@@ -52,7 +52,7 @@ export class ViewOrdersComponent implements OnInit {
   }
 
   viewActiveOrders() {
-    this.orderModel =  this.orderDetails.filter(book => book.orderStatus === 'Active');
+    this.orderModel =  this.orderDetails.filter(book => book.orderStatus === 'Processing');
   }
   viewCompletedOrders() {
     this.orderModel =  this.orderDetails.filter(book => book.orderStatus === 'Completed');

@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AppSetting } from '../config/appSetting';
 import {Order} from './view-orders/order.model';
+import {Product} from '../product/view-product/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,19 @@ export class OrderManagementService {
     const categoryUrl = 'orders/';
     const url: string = this.serviceUrl + categoryUrl + id;
     return this.httpClient.get<Order>(url);
+  }
+
+  getProducts(): Observable<any> {
+    const categoryUrl = 'product';
+    const url: string = this.serviceUrl + categoryUrl;
+    return this.httpClient.get<Product>(url);
+  }
+
+  // update Status
+
+  updateStatus(id, order: Order): Observable<any> {
+    const categoryUrl = 'statusupdate/' + id;
+    const url: string = this.serviceUrl + categoryUrl;
+    return this.httpClient.put<Product>(url, order);
   }
 }

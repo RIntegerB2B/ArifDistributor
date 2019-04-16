@@ -16,7 +16,7 @@ export class ViewProductComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumns: string[] = ['primeImage', 'productName', 'styleCode', 'skuCode'];
+  displayedColumns: string[] = ['primeImage', 'productName', 'styleCode', 'skuCode', 'qty'];
   productModel: Product;
   subProductModel: Product;
   productNameFilter = new FormControl('');

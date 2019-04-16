@@ -18,6 +18,10 @@ const routes: Routes = [
     {
       path: 'orders',
       loadChildren: './order-management/order-management.module#OrderManagementModule'
+    },
+    {
+      path: 'customers',
+      loadChildren: './customer-management/customer-management.module#CustomerManagementModule'
     }]
   }
 ];
